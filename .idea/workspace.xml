@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ML_mini_proj.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/raw/CBU0521DD_stories_attributes.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tech_plan.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transformation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transformation/audio_feature/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transformation/text_feature/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/transformation/text_feature/speech_to_text.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tech_plan.md" beforeDir="false" afterPath="$PROJECT_DIR$/tech_plan.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

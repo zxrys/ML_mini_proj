@@ -237,20 +237,8 @@ To ensure a smooth and organized implementation, the following workflow will be 
   - **Visualization**: `matplotlib`, `seaborn`
   - **Data Handling**: `pandas`, `numpy`
 
-#### 9. **Project Timeline**
 
-To ensure timely completion, the project will follow a structured timeline:
-
-- **Week 1**: Data acquisition and initial preprocessing.
-- **Week 2**: Audio feature extraction and text transcription.
-- **Week 3**: Text feature extraction and preliminary analysis.
-- **Week 4**: Feature fusion and model architecture design.
-- **Week 5**: Model training and initial evaluation.
-- **Week 6**: Hyperparameter tuning and performance optimization.
-- **Week 7**: Final evaluation, error analysis, and documentation.
-- **Week 8**: Finalizing the Jupyter notebook and submission.
-
-#### 10. **Potential Challenges and Mitigation Strategies**
+#### 9. **Potential Challenges and Mitigation Strategies**
 
 - **Limited Data Size**:
   - **Challenge**: With only 100 samples, the model is prone to overfitting.
@@ -272,10 +260,6 @@ To ensure timely completion, the project will follow a structured timeline:
   - **Challenge**: Training multimodal models, especially with pre-trained transformers, can be resource-intensive.
   - **Mitigation**: Utilize cloud-based GPU resources if necessary, optimize code for efficiency, and consider using lighter models like DistilBERT.
 
-#### 11. **Summary**
+#### 10. **Summary**
 
 The project adopts a multimodal machine learning approach, integrating both audio and textual features to predict the truthfulness of narrated stories. By meticulously extracting and fusing relevant features, designing a robust model architecture, and employing rigorous training and evaluation methodologies, the project aims to address the complexities of deception detection. Despite challenges such as limited data and potential transcription errors, strategic mitigation techniques and a structured workflow will facilitate the development of an effective solution.
-
----
-
-This detailed module planning provides a clear roadmap for implementing the machine learning model, ensuring that each component is thoughtfully addressed to maximize the project's success.
