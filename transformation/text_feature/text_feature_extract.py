@@ -132,7 +132,6 @@ def extract_text_feature(text, language):
 
     # Aggregate features
     aggregated_features = aggregate_features(mbert_embedding, syntactic_features)
-    # print(aggregated_features.shape)
 
     return aggregated_features
 

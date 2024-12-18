@@ -1,6 +1,5 @@
 import joblib
 import numpy as np
-from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
 
@@ -15,11 +14,6 @@ def load_data(path):
     data = joblib.load(path)
     print(f"Data loaded from {path}")
     return data
-
-
-def reduce_dimensionality(features, n_components=100):
-    pca = PCA(n_components=n_components, random_state=42)
-    return pca.fit_transform(features)
 
 
 def normalize_features(features):
@@ -50,3 +44,20 @@ def load_features(feature_path, label_path):
     print(f"Features loaded from {feature_path}")
     print(f"Labels loaded from {label_path}")
     return feature_matrix, labels
+
+
+def load_all_data(text_feature_path, text_label, audio_feature_path, audio_label):
+    """
+    Load text features, audio features, and labels.
+
+    Returns:
+        tuple: Text features, audio features, and labels.
+    """
+    X_text, y_text = load_features(text_feature_path, text_label)
+    X_audio, y_audio = load_features(audio_feature_path, audio_label)
+
+    # Ensure that labels are consistent
+    if not np.array_equal(y_text, y_audio):
+        raise ValueError("Labels for text and audio features do not match.")
+
+    return X_text, X_audio, y_text

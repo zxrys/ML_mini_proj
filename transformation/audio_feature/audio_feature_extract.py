@@ -141,8 +141,6 @@ def extract_features(audio_files):
         prosodic = extract_prosodic_features(audio)
         spectral = extract_spectral_features(audio)
         wav2vec = extract_wav2vec_embeddings(audio)
-        # vggish = extract_vggish_embeddings(audio)
-        # aggregated = aggregate_features(mfcc, prosodic, spectral, wav2vec, vggish)
         aggregated = aggregate_features(mfcc, prosodic, spectral, wav2vec)
         feature_matrix.append(aggregated)
     return np.array(feature_matrix)

@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="[upgrade] code refine">
+    <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="[fix]">
+      <change afterPath="$PROJECT_DIR$/CBU5201_miniproject_submission_cp.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ensembled_model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ensembled_model/evaluation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ensembled_model/fusion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ensembled_model/search_and_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/utils/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/utils/preprocess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transformation/visualize.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/single_mode/voice_only_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/voice_only_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/single_mode/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/single_mode/text_only_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/text_only_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/single_mode/voice_only_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/audio_only_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/text_feature/text_feature_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/text_feature/text_feature_extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/shuyao/Code/in_class/ML_mini_proj/ML_mini_proj/model",
+    "last_opened_file_path": "/Users/shuyao/Code/in_class/ML_mini_proj/ML_mini_proj",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,9 +75,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/data" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/model/single_mode" />
@@ -123,7 +136,7 @@
       <workItem from="1734351066338" duration="67000" />
       <workItem from="1734351150276" duration="9221000" />
       <workItem from="1734363266606" duration="2642000" />
-      <workItem from="1734498685048" duration="21769000" />
+      <workItem from="1734498685048" duration="28442000" />
     </task>
     <task id="LOCAL-00001" summary="[upgrade] voice feature extraction done">
       <option name="closed" value="true" />
@@ -149,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734514345141</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[fix]">
+      <option name="closed" value="true" />
+      <created>1734533388800</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734533388800</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +191,8 @@
     <MESSAGE value="[upgrade] voice feature extraction done" />
     <MESSAGE value="[upgrade] feature extraction done&#10;[upgrade] single mode random forest train and test done" />
     <MESSAGE value="[upgrade] code refine" />
-    <option name="LAST_COMMIT_MESSAGE" value="[upgrade] code refine" />
+    <MESSAGE value="[fix]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[fix]" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ML_mini_proj$speech_to_text.coverage" NAME="speech_to_text Coverage Results" MODIFIED="1734351983342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/speech2text" />

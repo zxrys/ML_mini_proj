@@ -47,7 +47,7 @@ def data_split(feature_path, label_path, test_size=0.3, random_state=42):
     return X_train_scaled, y_train, X_test_scaled, y_test
 
 
-def random_forest_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True):
+def random_forest_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True, return_model=False):
     print("Preprocessing objects saved.")
 
     # Check if retraining is needed
@@ -62,10 +62,12 @@ def random_forest_train_and_save(X_train_scaled, y_train, model_path, random_sta
     os.makedirs(os.path.dirname(model_path), exist_ok=True)
     joblib.dump(model, model_path)
     print(f"Model saved to {model_path}")
+    if return_model:
+        return model
     return model_path
 
 
-def logistic_regression_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True):
+def logistic_regression_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True, return_model=False):
     # Check if retraining is needed
     if os.path.exists(model_path) and not retrain:
         model = joblib.load(model_path)
@@ -84,10 +86,12 @@ def logistic_regression_train_and_save(X_train_scaled, y_train, model_path, rand
     # Save model
     joblib.dump(model, model_path)
     print(f"Logistic Regression model saved to {model_path}")
+    if return_model:
+        return model
     return model_path
 
 
-def svm_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True):
+def svm_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True, return_model=False):
     # Check if retraining is needed
     if os.path.exists(model_path) and not retrain:
         model = joblib.load(model_path)
@@ -106,6 +110,8 @@ def svm_train_and_save(X_train_scaled, y_train, model_path, random_state=42, ret
     # Save model
     joblib.dump(model, model_path)
     print(f"Support Vector Machine model saved to {model_path}")
+    if return_model:
+        return model
     return model_path
 
 

@@ -10,7 +10,7 @@ def train_and_test(feature_path,
             x_train,
             y_train,
             "models/text_only/random_forest.joblib")
-    elif model_type == "logistic regressio":
+    elif model_type == "logistic regression":
         model_path = logistic_regression_train_and_save(
             x_train,
             y_train,
