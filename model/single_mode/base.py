@@ -5,6 +5,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 import joblib
 import os
 
@@ -48,10 +50,11 @@ def data_split(feature_path, label_path, test_size=0.3, random_state=42):
 def random_forest_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True):
     print("Preprocessing objects saved.")
 
-    # Train model
+    # Check if retraining is needed
     if os.path.exists(model_path) and not retrain:
         model = joblib.load(model_path)
     else:
+        # Train model
         model = RandomForestClassifier(n_estimators=100, random_state=random_state)
         model.fit(X_train_scaled, y_train)
 
@@ -59,6 +62,50 @@ def random_forest_train_and_save(X_train_scaled, y_train, model_path, random_sta
     os.makedirs(os.path.dirname(model_path), exist_ok=True)
     joblib.dump(model, model_path)
     print(f"Model saved to {model_path}")
+    return model_path
+
+
+def logistic_regression_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True):
+    # Check if retraining is needed
+    if os.path.exists(model_path) and not retrain:
+        model = joblib.load(model_path)
+    else:
+        # Initialize and train Logistic Regression model
+        model = LogisticRegression(
+            random_state=random_state,
+            max_iter=1000,  # Increase max iterations to ensure convergence
+            solver='lbfgs'  # Recommended solver
+        )
+        model.fit(X_train_scaled, y_train)
+
+    # Ensure model save directory exists
+    os.makedirs(os.path.dirname(model_path), exist_ok=True)
+
+    # Save model
+    joblib.dump(model, model_path)
+    print(f"Logistic Regression model saved to {model_path}")
+    return model_path
+
+
+def svm_train_and_save(X_train_scaled, y_train, model_path, random_state=42, retrain=True):
+    # Check if retraining is needed
+    if os.path.exists(model_path) and not retrain:
+        model = joblib.load(model_path)
+    else:
+        # Initialize and train SVM model
+        model = SVC(
+            kernel='rbf',  # Radial Basis Function kernel
+            random_state=random_state,
+            probability=True  # Enable probability estimation
+        )
+        model.fit(X_train_scaled, y_train)
+
+    # Ensure model save directory exists
+    os.makedirs(os.path.dirname(model_path), exist_ok=True)
+
+    # Save model
+    joblib.dump(model, model_path)
+    print(f"Support Vector Machine model saved to {model_path}")
     return model_path
 
 
