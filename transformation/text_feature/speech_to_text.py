@@ -88,11 +88,13 @@ def convert_speech_to_text(input_base_path, output_folder, csv_file, model_type=
 
         if os.path.exists(output_file_path):
             print(f"Processed file {output_file_path} already exists, skip preprocessing")
+            saved_file_paths.append(output_file_path)
+            continue
 
         try:
             # Open the audio file
             with sr.AudioFile(file_path) as source:
-                print(f"Processing: {filename} (Language: {language})")
+                # print(f"Processing: {filename} (Language: {language})")
                 audio = recognizer.record(source)
 
             # Perform recognition based on the selected model
@@ -105,13 +107,12 @@ def convert_speech_to_text(input_base_path, output_folder, csv_file, model_type=
             elif model_type == "google_cloud":
                 text = recognize_with_google_cloud(recognizer, audio, language)
 
-            print(f"Result: {text}")
+            # print(f"Result: {text}")
 
             # Save the result to a text file
             with open(output_file_path, "w", encoding="utf-8") as f:
                 f.write(text)
 
-            print(f"File saved to: {output_file_path}")
             saved_file_paths.append(output_file_path)  # Add the path to the list
 
         except sr.UnknownValueError:

@@ -7,6 +7,8 @@ from transformers import Wav2Vec2Model, Wav2Vec2Tokenizer
 import joblib
 import pandas as pd
 
+import utils
+
 # 检查CUDA是否可用
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
@@ -111,7 +113,6 @@ def aggregate_features(mfcc, prosodic, spectral, wav2vec):
     wav2vec_features = np.array(wav2vec)
     # vggish_features = np.array(vggish)
 
-    # 验证所有特征是一维的
     assert mfcc_mean.ndim == 1, f"mfcc_mean has {mfcc_mean.ndim} dimensions"
     assert mfcc_std.ndim == 1, f"mfcc_std has {mfcc_std.ndim} dimensions"
     assert mfcc_skew.ndim == 1, f"mfcc_skew has {mfcc_skew.ndim} dimensions"
@@ -184,23 +185,6 @@ def load_labels(csv_path):
     return filename_to_label
 
 
-def save_features(feature_matrix, labels, feature_path, label_path):
-    """Save feature matrix and labels to disk."""
-    joblib.dump(feature_matrix, feature_path)
-    joblib.dump(labels, label_path)
-    print(f"Features saved to {feature_path}")
-    print(f"Labels saved to {label_path}")
-
-
-def load_features(feature_path, label_path):
-    """Load feature matrix and labels from disk."""
-    feature_matrix = joblib.load(feature_path)
-    labels = joblib.load(label_path)
-    print(f"Features loaded from {feature_path}")
-    print(f"Labels loaded from {label_path}")
-    return feature_matrix, labels
-
-
 def process_and_save_features(audio_directory, feature_path, label_path, csv_path):
     """Full pipeline to process audio files and save features and labels."""
     # Load labels from CSV
@@ -242,7 +226,7 @@ def process_and_save_features(audio_directory, feature_path, label_path, csv_pat
     print(f"Labels shape: {labels.shape}")
 
     # Save features and labels
-    save_features(feature_matrix, labels, feature_path, label_path)
+    utils.save_features(feature_matrix, labels, feature_path, label_path)
 
 
 if __name__ == "__main__":
