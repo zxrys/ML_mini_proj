@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="[upgrade] requirement update">
+    <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="[upgrade] refine">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CBU5201_miniproject_submission.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +124,7 @@
       <workItem from="1734363266606" duration="2642000" />
       <workItem from="1734498685048" duration="28745000" />
       <workItem from="1734540518147" duration="241000" />
-      <workItem from="1734859557077" duration="1189000" />
+      <workItem from="1734859557077" duration="1521000" />
     </task>
     <task id="LOCAL-00001" summary="[upgrade] voice feature extraction done">
       <option name="closed" value="true" />
@@ -175,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734540685114</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[upgrade] refine">
+      <option name="closed" value="true" />
+      <created>1734860840779</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734860840779</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +206,8 @@
     <MESSAGE value="[fix]" />
     <MESSAGE value="[DONE]" />
     <MESSAGE value="[upgrade] requirement update" />
-    <option name="LAST_COMMIT_MESSAGE" value="[upgrade] requirement update" />
+    <MESSAGE value="[upgrade] refine" />
+    <option name="LAST_COMMIT_MESSAGE" value="[upgrade] refine" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ML_mini_proj$speech_to_text.coverage" NAME="speech_to_text Coverage Results" MODIFIED="1734351983342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/speech2text" />
