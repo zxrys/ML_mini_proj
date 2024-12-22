@@ -4,17 +4,16 @@ import numpy as np
 import scipy.stats
 import torch
 from transformers import Wav2Vec2Model, Wav2Vec2Tokenizer
-import joblib
 import pandas as pd
 
 import utils
 
-# 检查CUDA是否可用
+# Check if CUDA is available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 
-# 定义音频加载和预处理函数
+# Define audio loading and preprocessing function
 def load_audio(file_path, duration=300, sr=16000):
     try:
         audio, _ = librosa.load(file_path, sr=sr)
@@ -31,13 +30,15 @@ def load_audio(file_path, duration=300, sr=16000):
         return None
 
 
-# 定义特征提取函数
+# Define feature extraction functions
+
 def extract_mfcc(audio, sr=16000, n_mfcc=13, n_fft=400, hop_length=160):
     mfcc = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=n_mfcc, n_fft=n_fft, hop_length=hop_length)
     return mfcc
 
 
 def extract_prosodic_features(audio, sr=16000):
+    # Extract pitch, energy, and speech rate related features
     pitches, voiced_flags, voiced_probs = librosa.pyin(
         audio,
         fmin=librosa.note_to_hz('C2'),
@@ -73,7 +74,7 @@ def extract_spectral_features(audio, sr=16000):
     }
 
 
-# 加载预训练的Wav2Vec 2.0模型和tokenizer，并将模型移动到GPU（如果可用）
+# Load pre-trained Wav2Vec 2.0 model and tokenizer, and move the model to GPU (if available)
 tokenizer = Wav2Vec2Tokenizer.from_pretrained("facebook/wav2vec2-base-960h")
 wav2vec_model = Wav2Vec2Model.from_pretrained("facebook/wav2vec2-base-960h").to(device)
 
@@ -86,21 +87,7 @@ def extract_wav2vec_embeddings(audio, sr=16000):
     return embeddings
 
 
-# def extract_vggish_embeddings(audio, sr=16000):
-#     mel_spectrogram = librosa.feature.melspectrogram(y=audio, sr=sr, n_mels=64)
-#     log_mel_spectrogram = librosa.power_to_db(mel_spectrogram)
-#     if log_mel_spectrogram.shape[1] < 96:
-#         pad_width = 96 - log_mel_spectrogram.shape[1]
-#         log_mel_spectrogram = np.pad(log_mel_spectrogram, ((0, 0), (0, pad_width)), mode='constant')
-#     else:
-#         log_mel_spectrogram = log_mel_spectrogram[:, :96]
-#     log_mel_spectrogram = np.expand_dims(log_mel_spectrogram, axis=0)
-#     log_mel_spectrogram = np.expand_dims(log_mel_spectrogram, axis=-1)
-#     # Placeholder embeddings
-#     embeddings = np.random.rand(128)
-#     return embeddings
-
-
+# Function to aggregate features from MFCC, prosodic, spectral, and Wav2Vec embeddings
 def aggregate_features(mfcc, prosodic, spectral, wav2vec):
     mfcc_mean = np.mean(mfcc, axis=1)
     mfcc_std = np.std(mfcc, axis=1)
@@ -111,8 +98,8 @@ def aggregate_features(mfcc, prosodic, spectral, wav2vec):
     spectral_features = np.array(list(spectral.values()))
 
     wav2vec_features = np.array(wav2vec)
-    # vggish_features = np.array(vggish)
 
+    # Ensure all features are 1-dimensional
     assert mfcc_mean.ndim == 1, f"mfcc_mean has {mfcc_mean.ndim} dimensions"
     assert mfcc_std.ndim == 1, f"mfcc_std has {mfcc_std.ndim} dimensions"
     assert mfcc_skew.ndim == 1, f"mfcc_skew has {mfcc_skew.ndim} dimensions"
@@ -120,20 +107,19 @@ def aggregate_features(mfcc, prosodic, spectral, wav2vec):
     assert prosodic_features.ndim == 1, f"prosodic_features has {prosodic_features.ndim} dimensions"
     assert spectral_features.ndim == 1, f"spectral_features has {spectral_features.ndim} dimensions"
     assert wav2vec_features.ndim == 1, f"wav2vec_features has {wav2vec_features.ndim} dimensions"
-    # assert vggish_features.ndim == 1, f"vggish_features has {vggish_features.ndim} dimensions"
 
+    # Concatenate all features into a single vector
     feature_vector = np.concatenate([
         mfcc_mean, mfcc_std, mfcc_skew, mfcc_kurt,
         prosodic_features,
         spectral_features,
         wav2vec_features,
-        # vggish_features
     ])
     return feature_vector
 
 
+# Function to extract features from a list of audio files
 def extract_features(audio_files):
-    """Extract and aggregate features from a list of audio files."""
     feature_matrix = []
     for idx, audio in enumerate(audio_files):
         print(f"Processing audio file {idx + 1}/{len(audio_files)}")
@@ -146,8 +132,8 @@ def extract_features(audio_files):
     return np.array(feature_matrix)
 
 
+# Function to retrieve all audio file paths with a given extension
 def get_audio_file_paths(audio_directory, extension='.wav'):
-    """Retrieve all audio file paths with the given extension."""
     return [
         os.path.join(audio_directory, file)
         for file in os.listdir(audio_directory)
@@ -155,8 +141,8 @@ def get_audio_file_paths(audio_directory, extension='.wav'):
     ]
 
 
+# Function to load audio files from the given paths
 def load_audio_files(audio_file_paths):
-    """Load audio files from the given file paths."""
     audio_files = []
     for file_path in audio_file_paths:
         audio = load_audio(file_path)
@@ -165,6 +151,7 @@ def load_audio_files(audio_file_paths):
     return audio_files
 
 
+# Function to load labels from a CSV file
 def load_labels(csv_path):
     """
     Load labels from a CSV file.
@@ -183,12 +170,13 @@ def load_labels(csv_path):
     return filename_to_label
 
 
+# Full pipeline to process audio files and save extracted features and labels
 def process_and_save_features(audio_directory, feature_path, label_path, csv_path):
-    """Full pipeline to process audio files and save features and labels."""
     # Load labels from CSV
     filename_to_label = load_labels(csv_path)
     print(f"Loaded labels for {len(filename_to_label)} files from {csv_path}.")
 
+    # Get all audio file paths in the directory
     audio_file_paths = get_audio_file_paths(audio_directory)
     print(f"Found {len(audio_file_paths)} audio files in directory {audio_directory}.")
 
@@ -204,10 +192,11 @@ def process_and_save_features(audio_directory, feature_path, label_path, csv_pat
     if unlabeled_files:
         print(f"Warning: {len(unlabeled_files)} audio files do not have labels and will be skipped.")
 
+    # Load the audio files that have labels
     audio_files = load_audio_files(labeled_audio_file_paths)
     print(f"Successfully loaded {len(audio_files)} audio files.")
 
-    # Extract features
+    # Extract features from audio files
     feature_matrix = extract_features(audio_files)
     print(f"Feature matrix shape: {feature_matrix.shape}")
 
@@ -223,7 +212,7 @@ def process_and_save_features(audio_directory, feature_path, label_path, csv_pat
     labels = np.array(labels)
     print(f"Labels shape: {labels.shape}")
 
-    # Save features and labels
+    # Save the feature matrix and labels
     utils.save_features(feature_matrix, labels, feature_path, label_path)
 
 
@@ -242,6 +231,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    # Ensure the directory to save features exists
     os.makedirs(os.path.dirname(args.feature_path), exist_ok=True)
 
+    # Run the full pipeline to process the audio files and save features/labels
     process_and_save_features(args.audio_dir, args.feature_path, args.label_path, args.csv_path)
