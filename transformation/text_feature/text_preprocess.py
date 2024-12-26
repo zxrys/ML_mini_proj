@@ -1,3 +1,21 @@
+"""
+    This file is part of ML_mini_proj project
+    Copyright (C) 2024 Yao Shu  <springrainyszxr@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
+
 import re
 import string
 import jieba
@@ -15,6 +33,7 @@ CHINESE_FILLERS = ['嗯', '啊', '这个']
 LANGUAGE_EN = "English"
 LANGUAGE_ZH = "Chinese"
 
+
 def remove_fillers(text, language):
     """
     Remove filler and hesitation words, choosing the filler list based on the language
@@ -25,6 +44,7 @@ def remove_fillers(text, language):
         text = re.sub(pattern, '', text)
     return text
 
+
 def remove_non_verbal(text):
     """
     Remove non-verbal sound annotations such as [laughs], [sighs]
@@ -32,6 +52,7 @@ def remove_non_verbal(text):
     pattern = r'\[.*?\]'
     text = re.sub(pattern, '', text)
     return text
+
 
 def lowercase_text(text, language):
     """
@@ -41,6 +62,7 @@ def lowercase_text(text, language):
         return text.lower()
     return text
 
+
 def remove_punctuation(text):
     """
     Remove English punctuation
@@ -48,6 +70,7 @@ def remove_punctuation(text):
     text = text.translate(str.maketrans('', '', string.punctuation))
     # If handling Chinese punctuation is needed, additional logic can be added here
     return text
+
 
 def expand_contractions_func(text, language):
     """
@@ -57,11 +80,13 @@ def expand_contractions_func(text, language):
         return contractions.fix(text)
     return text
 
+
 def normalize_whitespace(text):
     """
     Normalize whitespace characters
     """
     return ' '.join(text.split())
+
 
 def tokenize_english(text):
     """
@@ -69,11 +94,13 @@ def tokenize_english(text):
     """
     return word_tokenize(text)
 
+
 def tokenize_chinese(text):
     """
     Tokenize Chinese text
     """
     return list(jieba.cut(text))
+
 
 def mixed_tokenize(text, language):
     """
@@ -86,6 +113,7 @@ def mixed_tokenize(text, language):
     else:
         # Default to English tokenization
         return tokenize_english(text)
+
 
 def preprocess_text(text, language):
     """

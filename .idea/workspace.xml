@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="[upgrade]">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+    <list default="true" id="c8ec0114-3552-4afd-a460-5f9e2f16de96" name="Changes" comment="[upgrade] license">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CBU5201_miniproject.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CBU5201_miniproject.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ensembled_model/evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/ensembled_model/evaluation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ensembled_model/fusion.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/ensembled_model/fusion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ensembled_model/search_and_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/ensembled_model/search_and_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/single_mode/audio_only_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/audio_only_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/single_mode/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/single_mode/text_only_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/single_mode/text_only_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/ploter.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/ploter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/utils/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/utils/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/audio_feature/audio_feature_extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/text_feature/speech_to_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/text_feature/speech_to_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/text_feature/text_feature_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/text_feature/text_feature_extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/text_feature/text_preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/text_feature/text_preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformation/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformation/visualize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +142,7 @@
       <workItem from="1734859557077" duration="4678000" />
       <workItem from="1734943033092" duration="54000" />
       <workItem from="1735042114577" duration="791000" />
-      <workItem from="1735211994933" duration="78000" />
+      <workItem from="1735211994933" duration="470000" />
     </task>
     <task id="LOCAL-00001" summary="[upgrade] voice feature extraction done">
       <option name="closed" value="true" />
@@ -209,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734863710647</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[upgrade] license">
+      <option name="closed" value="true" />
+      <created>1735212093441</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735212093441</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +260,8 @@
     <MESSAGE value="[upgrade] add readme" />
     <MESSAGE value="[upgrade] rename" />
     <MESSAGE value="[upgrade]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[upgrade]" />
+    <MESSAGE value="[upgrade] license" />
+    <option name="LAST_COMMIT_MESSAGE" value="[upgrade] license" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ML_mini_proj$speech_to_text.coverage" NAME="speech_to_text Coverage Results" MODIFIED="1734351983342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/speech2text" />

@@ -1,3 +1,22 @@
+"""
+    This file is part of ML_mini_proj project
+    Copyright (C) 2024 Yao Shu  <springrainyszxr@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
+
+
 def analyze_features(audio_features_path, text_features_path, labels_path):
     """
     Analyze and visualize audio and text features along with their labels.
@@ -174,7 +193,8 @@ def analyze_features(audio_features_path, text_features_path, labels_path):
     print(f"Number of High-Variance Features: {high_variance_features.shape[1]}\n")
 
     # Convert to DataFrame for Easier Handling
-    combined_df = pd.DataFrame(combined_features_scaled, columns=[f'Feature_{i}' for i in range(combined_features_scaled.shape[1])])
+    combined_df = pd.DataFrame(combined_features_scaled,
+                               columns=[f'Feature_{i}' for i in range(combined_features_scaled.shape[1])])
     combined_df['Label'] = labels
 
     # Select a Few High-Variance Features to Plot
@@ -195,7 +215,8 @@ def analyze_features(audio_features_path, text_features_path, labels_path):
         print("No features available for box plotting.")
     else:
         # Melt the DataFrame for Seaborn Boxplot
-        melted_df = combined_df[available_features + ['Label']].melt(id_vars='Label', var_name='Feature', value_name='Value')
+        melted_df = combined_df[available_features + ['Label']].melt(id_vars='Label', var_name='Feature',
+                                                                     value_name='Value')
 
         plt.figure(figsize=(15, 10))
         sns.boxplot(x='Feature', y='Value', hue='Label', data=melted_df, palette='Set2')
@@ -243,4 +264,3 @@ def analyze_features(audio_features_path, text_features_path, labels_path):
     plot_pca_interactive(combined_features_scaled, labels, 'Interactive PCA of Combined Features')
 
     print("Analysis Complete.")
-
